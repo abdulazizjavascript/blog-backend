@@ -1,0 +1,44 @@
+[
+  {
+    "_id": "63de2fc268d03b5daea7c6a6",
+    "name": "Technology",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, pariatur magnam officiis nesciunt quis molestias eveniet provident sit! Minima, voluptas!",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64f06a2ba8bfc9872efff339"
+  },
+  {
+    "_id": "64caf38236e45e4c1ea58b12",
+    "name": "Business",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, pariatur magnam officiis nesciunt quis molestias eveniet provident sit! Minima, voluptas!",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64caf36836e45e4c1ea58b0f"
+  },
+  {
+    "_id": "64caf3ae36e45e4c1ea58b1b",
+    "name": "Entertainment",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, pariatur magnam officiis nesciunt quis molestias eveniet provident sit! Minima, voluptas!",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64caf39a36e45e4c1ea58b18"
+  },
+  {
+    "_id": "64dc88535d1cb640156faafa",
+    "name": "Health",
+    "description": "jkdsvksjfdber",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64dc88365d1cb640156faae8"
+  },
+  {
+    "_id": "64e07dbee6e5345ad5b7dbb9",
+    "name": "Economy",
+    "description": "lorem inponjsdf dolor fie",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64e07daae6e5345ad5b7dbb6"
+  },
+  {
+    "_id": "64e07de5e6e5345ad5b7dbdd",
+    "name": "Sport",
+    "description": "lorem ipsum dolor mison fiwe",
+    "user": "64bc0d09261b7917c5c08f1b",
+    "photo": "64e07dd6e6e5345ad5b7dbda"
+  }
+]
