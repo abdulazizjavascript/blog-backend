@@ -17,6 +17,7 @@ const user = require("./routes/user");
 
 // Connect mongo
 const connectDB = require("./config/db");
+const ErrorResponse = require("./utils/errorResponse");
 
 // Env
 dotenv.config({ path: "./config/config.env" });
@@ -52,6 +53,10 @@ app.use("/api/v1/comment", comment);
 app.use("/api/v1/upload", photo);
 app.use("/api/v1/user", user);
 app.use("/api/v1/auth", auth);
+
+app.all("*", (req, res, next) => {
+  next(new ErrorResponse(`Can't find ${req.originalUrl} on the server !`, 404));
+});
 
 // Error handler
 app.use(errorHandler);
