@@ -17,7 +17,7 @@ exports.register = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ username });
 
   if (user) {
-    return next(new ErrorResponse("Bu foydalanuvchi mavjud !", 400));
+    return next(new ErrorResponse("This user exists !", 400));
   }
 
   // Create user
@@ -42,7 +42,7 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   if (!username || !password) {
     return next(
-      new ErrorResponse("Foydalanuvchi nomi va parolni kiriting !", 400)
+      new ErrorResponse("Please enter usenname and password !", 400)
     );
   }
 
@@ -50,14 +50,14 @@ exports.login = asyncHandler(async (req, res, next) => {
   const user = await User.findOne({ username }).select("+password");
 
   if (!user) {
-    return next(new ErrorResponse("Bu foydalanuvchi mavjud emas !", 401));
+    return next(new ErrorResponse("This user doesn't exist !", 401));
   }
 
   // Check if password matches
   const isMatch = await user.matchPassword(password);
 
   if (!isMatch) {
-    return next(new ErrorResponse("Parol xato !", 401));
+    return next(new ErrorResponse("Password is wrong !", 401));
   }
 
   sendTokenResponse(user, 200, res);
@@ -87,7 +87,7 @@ exports.updatePassword = asyncHandler(async (req, res, next) => {
   const isEqual = await user.matchPassword(req.body.currentPassword);
 
   if (!isEqual) {
-    return next(new ErrorResponse("Current Password is incorrect", 401));
+    return next(new ErrorResponse("Current password is incorrect !", 401));
   }
 
   user.password = req.body.newPassword;

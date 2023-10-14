@@ -5,6 +5,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const fileupload = require("express-fileupload");
 const cors = require("cors");
+const errorHandler = require("./middleware/error");
 
 // routes
 const category = require("./routes/category");
@@ -17,8 +18,7 @@ const user = require("./routes/user");
 // Connect mongo
 const connectDB = require("./config/db");
 
-// Error handle
-const errorHandler = require("./middleware/error");
+// Env
 dotenv.config({ path: "./config/config.env" });
 
 const app = express();
@@ -46,15 +46,15 @@ app.use(cors());
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
 
-// Error handler
-app.use(errorHandler);
-
 app.use("/api/v1/category", category);
 app.use("/api/v1/post", post);
 app.use("/api/v1/comment", comment);
 app.use("/api/v1/upload", photo);
 app.use("/api/v1/user", user);
 app.use("/api/v1/auth", auth);
+
+// Error handler
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
