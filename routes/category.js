@@ -18,10 +18,7 @@ const router = express.Router();
 router
   .route("/")
   .get(
-    advancedResults(Category, {
-      path: "photo",
-      select: "name",
-    }),
+    advancedResults(Category, "user photo", ["title", "description"]),
     getCategories
   )
   .post(protect, authorize("admin"), createCategory);

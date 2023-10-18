@@ -30,7 +30,12 @@ router
   .route("/user")
   .get(
     protect,
-    advancedResults(Post, "user photo category", ["title", "description"], true),
+    advancedResults(
+      Post,
+      "user photo category",
+      ["title", "description"],
+      true
+    ),
     getPosts
   );
 
