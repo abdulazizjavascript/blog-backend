@@ -47,10 +47,12 @@ exports.deleteCategory = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Category not found with id of ${categoryId}`, 404)
     );
   }
-  
+
   const posts = await Post.find({ category: categoryId });
 
-  if (posts) {
+  console.log(posts);
+
+  if (posts.length !== 0) {
     return next(
       new ErrorResponse(
         `Before delete posts of the category with id of ${categoryId}`,
@@ -58,7 +60,8 @@ exports.deleteCategory = asyncHandler(async (req, res, next) => {
       )
     );
   } else {
-    await Category.findById(categoryId);
+    await Category.findByIdAndDelete(categoryId);
   }
+
   res.status(200).json(null);
 });
